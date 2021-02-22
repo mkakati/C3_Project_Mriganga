@@ -17,8 +17,6 @@ public class Restaurant {
         this.closingTime = closingTime;
     }
 
-    // Given the current time, opening time and closing time, this method
-    // returns if the restaurant is open or not
     public boolean isRestaurantOpen() {
         if(getCurrentTime().isAfter(this.openingTime ) && getCurrentTime().isBefore(this.closingTime)) {
             return true;
@@ -30,7 +28,7 @@ public class Restaurant {
 
     public LocalTime getCurrentTime(){ return  LocalTime.now(); }
 
-    // This method returns a List of items that are listed in the menu
+
     public List<Item> getMenu() {
         if (this.menu.size() > 0) {
             return this.menu ;
@@ -61,8 +59,7 @@ public class Restaurant {
 
         menu.remove(itemToBeRemoved);
     }
-    /*Given  a list of itemName, this method finds out price of each item and
-    returns the total order value*/
+
     public int calculateOrderValue(List<String> itemNames) {
         int totalOrderValue = 0;
         for (String name: itemNames){
@@ -71,7 +68,6 @@ public class Restaurant {
         return totalOrderValue ;
     }
 
-    /*Given  an itemName, this method returns the price for that item */
     public int findItemPrice(String itemName) {
         for(Item item: menu) {
             if(item.getName().equals(itemName)){
